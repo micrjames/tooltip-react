@@ -1,7 +1,21 @@
 @import './tooltip';
+@import '../../tooltip-config.scss';
 
-.tooltip {
-	 margin: 0 1.2rem;
-	 border-bottom: 1px dotted black;
-	 @include tooltip(1rem, black, white, below);
+.default {
+	 @include tooltip($font-size, $background-color, $text-color, below);
+}
+.lower-left {
+	 @include tooltip($font-size, $background-color, $text-color, below, right, left);
+} 
+.lower-right {
+	 @include tooltip($font-size, $background-color, $text-color, below, left, right);
+} 
+.upper {
+	 @include tooltip($font-size, $background-color, $text-color, above);
+}
+.upper-left {
+	 @include tooltip($font-size, $background-color, $text-color, above, right, left);
+}
+.upper-right {
+	 @include tooltip($font-size, $background-color, $text-color, above, left, right);
 }

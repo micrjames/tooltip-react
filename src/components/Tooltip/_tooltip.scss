@@ -1,6 +1,6 @@
 @mixin tooltip($font-size, $background-color, $text-color, $direction: below, $justify: center, $displacement: null) {
    position: relative;
-   &-text {
+   .tooltip-text {
 	  font-size: $font-size;
 	  visibility: hidden;
 	  @if $direction == below {

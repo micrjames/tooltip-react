@@ -1,10 +1,10 @@
 import './index.scss';
 
-const Tooltip = () => {
+const Tooltip = ({ type, text, tooltipText }) => {
    return (
-	  <div class="tooltip">
-		 some text
-         <div class="tooltip-text">some tooltip text</div>
+	  <div class={`tooltip ${type}`}>
+		 {text} 
+         <div class="tooltip-text">{tooltipText}</div>
      </div> 
    );
 };

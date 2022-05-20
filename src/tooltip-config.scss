@@ -1,0 +1,8 @@
+$font-size: 1rem;
+$background-color: black;
+$text-color: white;
+ 
+.tooltip {
+    margin: 0 1.2rem;
+    border-bottom: 1px dotted $background-color;
+}
