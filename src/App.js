@@ -1,6 +1,11 @@
+import { Tooltip } from './components';
+
 function App() {
   return (
-    <div className="App">
+	<div class="container">
+		<div class="container">
+	 		<Tooltip />
+        </div>
     </div>
   );
 }

@@ -1,0 +1,77 @@
+@mixin tooltip($font-size, $background-color, $text-color, $direction: below, $justify: center, $displacement: null) {
+   position: relative;
+   &-text {
+	  font-size: $font-size;
+	  visibility: hidden;
+	  @if $direction == below {
+		 top: 120%;
+		 @if $displacement == right {
+		    left: 100%;	
+		 } @else if $displacement == left {
+			right: 10%;	
+		 } @else {
+			left: 50%;
+		 }
+		 transform: translateX(-50%);
+	  } @else if $direction == above {
+		 bottom: 100%;
+		 @if $displacement == right {
+		    right: 0%;	
+		 } @else if $displacement == left {
+			right: 110%;	
+		 } @else {
+			right: 50%;
+		 }
+		 transform: translateX(50%);
+	  }
+	  background-color: $background-color;
+	  color: $text-color;
+	  text-align: center;
+	  padding: 10px;
+	  white-space: nowrap;
+	  border-radius: 5px;
+	  position: absolute;
+	  z-index: 1;
+	  opacity: 0;
+	  transition: opacity 1s;
+	  &::after {
+		 content: "";
+		 position: absolute;
+		 @if $direction == below {
+			bottom: 100%;
+			border-color: transparent transparent $background-color transparent;
+			@if $justify == center {
+			   left: 50%;
+			   transform: translateX(-50%);
+			} @else if $justify == left {
+			   left: 25%;
+			   transform: translateX(-25%);
+			} @else if $justify == right {
+			   left: 90%;
+			   transform: translateX(-90%);
+			}
+		 } @else if $direction == above {
+			top: 100%;
+			border-color: $background-color transparent transparent transparent;
+			@if $justify == center {
+			   right: 50%;
+			   transform: translateX(50%);
+			} @else if $justify == left {
+			   right: 75%;
+			   transform: translateX(75%);
+			} @else if $justify == right {
+			   right: 25%;
+			   transform: translateX(75%);
+			}
+		 }
+		 border-width: 10px;
+		 border-style: solid;
+	  }  
+   }
+   &:hover {
+	  .tooltip-text {
+		 visibility: visible;
+		 opacity: 1;
+	  } 
+   } 
+}
